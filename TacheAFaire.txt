@@ -1,0 +1,35 @@
+Le jeux du boogle
+
+fait : OUI/NON
+SI une partie n'est pas totalement finie, il faut pas hésiter à rajouter des sous taches pour savoir ce qui à été fait ou pas.
+Aussi, il faut essayer d'annoter le code de façon régulière pour une relecture plus simple.
+
+Diagramme de classe UML : PAS FAIT 
+
+1) OUI (fait lors de la création du dico) : choix de langue (on commence à faire le jeux en fr, le mettre en anglais sera simple après.
+2) NON : traitement fichier 3 méthode il me semble
+
+
+ Classe Joueur : NON
+
+ Classe Dé : je bosse dessus
+
+
+ Classe Dico : OUI 
+    Méthode toString est finie (normalement) et fonctionne
+    Méthode RechDico est fini de manière résursive et fonctionne
+    ce qu'il faut rajouter (hésite pas à mettre des chose) :
+    - /
+    - /
+
+ Classe PLateau : je suis chaud pour la faire
+
+ Classe Jeu : NON
+
+ Nuage de mot : NON
+
+
+ 
+
+
+ 
