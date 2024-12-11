@@ -9,24 +9,46 @@ Diagramme de classe UML : PAS FAIT
 1) OUI (fait lors de la création du dico) : choix de langue (on commence à faire le jeux en fr, le mettre en anglais sera simple après.
 2) NON : traitement fichier 3 méthode il me semble
 
+ Programme (main) NON
+ mettre la partie entre "//partie à ajouter" et "//fin de partie à ajouter au main" de la classe dé
+   - cela permet d'eviter de trainter trop de fois le fichier Lettre.txt, on le traite 1 seul fois, on a tt les donné du fichier
+     ainsi que la liste de lettre pondéré à ajouter au dé
+     Cette partie etait dans la classe dé pour que ca soit plus simple pour des tests perso et qu'elle soit sauvegardé. 
+     le constructeur final de la classe dé est deja implémenté, il n'y aura pas de changement à faire.
+
 
  Classe Joueur : NON
 
- Classe Dé : je bosse dessus
+ Classe Dé : finie
+   - constructeur de De() (pour des test) ou de(List<string>) pour le constructeur final (deja intégré dans la classe dé)
+   - méthode lance() finie (renvoit un string de la lettre), permet de séléctionner une face du dé.
+   - méthode toString finie (renvoit un string à afficher)
+ 
 
-
- Classe Dico : OUI 
-    Méthode toString est finie (normalement) et fonctionne
-    Méthode RechDico est fini de manière résursive et fonctionne
+ Classe Dico : finie 
+    Constructeur : dictionnaire(string langue (soit EN soit FR))
+    Méthode toString() est finie (normalement) et fonctionne (ne renvoit rien)
+    Méthode RechDico(string mot) est fini de manière résursive et fonctionne (renvoit un bool)
     ce qu'il faut rajouter (hésite pas à mettre des chose) :
     - /
     - /
 
- Classe PLateau : je suis chaud pour la faire
-
+ Classe PLateau : finie
+   - constructeur : possibilité de choisir la taille du PLateau Plateau(hauteur, largeur), avec un fail safe si des valleus sont mauvaise
+     /!\, avant de pouvoir affiche le plateau il faut utiliser au moins 1 fois la méthode NouvPlat() 
+     pour lancer les dé correspondant à chaque case
+   - méthode AfficherPlat() fini (renvoit un string)
+   - méthode Test_Plateau(string mot) finie et fonctionne (renvoit un bool).
+     Elle est séparé en 2, la principale qui cherche dan la matrice la 1ere lettre et la deuxième qui chrche la suite de façon récursive.
+   - Méthode NouvPlat(), fini (ne revoit rien) permet de relancer les dé du plateau sans en recréer un, à utilise juste après la création
+     du plateau
+   
  Classe Jeu : NON
 
  Nuage de mot : NON
+  - à faire avec un ia normalement
+
+
 
 
  
