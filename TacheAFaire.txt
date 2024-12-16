@@ -4,12 +4,19 @@ fait : OUI/NON
 SI une partie n'est pas totalement finie, il faut pas hésiter à rajouter des sous taches pour savoir ce qui à été fait ou pas.
 Aussi, il faut essayer d'annoter le code de façon régulière pour une relecture plus simple.
 
+
+
+A FAIRE
 Diagramme de classe UML : PAS FAIT 
+NON : traitement fichier 3 méthode il me semble
+Nuage de mot : NON
+  - à faire avec un ia normalement
 
-1) OUI (fait lors de la création du dico) : choix de langue (on commence à faire le jeux en fr, le mettre en anglais sera simple après.
-2) NON : traitement fichier 3 méthode il me semble
+FINI 
 
- Programme (main) NON
+    toute la base du programme est fini ainsi que le main. Il faudra enlever les commentaires et ajouter d'autre méthode de traitement.
+
+ Programme (main) OUI, fini
  mettre la partie entre "//partie à ajouter" et "//fin de partie à ajouter au main" de la classe dé
    - cela permet d'eviter de trainter trop de fois le fichier Lettre.txt, on le traite 1 seul fois, on a tt les donné du fichier
      ainsi que la liste de lettre pondéré à ajouter au dé
@@ -17,7 +24,7 @@ Diagramme de classe UML : PAS FAIT
      le constructeur final de la classe dé est deja implémenté, il n'y aura pas de changement à faire.
 
 
- Classe Joueur : NON
+ Classe Joueur : finie
 
  Classe Dé : finie
    - constructeur de De() (pour des test) ou de(List<string>) pour le constructeur final (deja intégré dans la classe dé)
@@ -43,10 +50,9 @@ Diagramme de classe UML : PAS FAIT
    - Méthode NouvPlat(), fini (ne revoit rien) permet de relancer les dé du plateau sans en recréer un, à utilise juste après la création
      du plateau
    
- Classe Jeu : NON
+ Classe Jeu : Il y a le timer dedans
 
- Nuage de mot : NON
-  - à faire avec un ia normalement
+
 
 
 
