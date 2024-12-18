@@ -10,7 +10,7 @@ public class Plateau
     private De[,] Pde;
     private string[,] plateau;
 
-    public Plateau(int hauteur, int largeur)
+    public Plateau(int hauteur, int largeur,List<string> ListeLettrePondéré)
     {
         
         //potentiellement à mettre dans dans le main
@@ -45,7 +45,7 @@ public class Plateau
             {
                 for (int j = 0; j<largeur; j++)
                 {
-                    Pde[i,j] = new De();
+                    Pde[i,j] = new De(ListeLettrePondéré);
                     
                 }
             }
@@ -88,6 +88,7 @@ public class Plateau
         /// ensuiten on fait pareil jusqu'a ce que le mot fasse 0 lettre, si c'est le cas c'est que le mot est bien dans le tableau.
         /// faudra aussi voir pour ne pas compter la posisiton n-1
         /// la fonction sera séparé en 2, la première qui cherche la toute première lettre du mot, et la deuxième, ittérative, qui fera le reste.
+       
         for (int i = 0; i< hauteur&& test == false; i++)
         {
             for (int j = 0; j<largeur&& test == false; j++)
@@ -108,14 +109,15 @@ public class Plateau
             return true;
         }
         else{
-
+            
             bool test = false;
             for (int x= i-1; x<=i+1&& test == false; x++)
             {
-                for (int y = j-1; y<=j+1&& test == false; y++)
+                for (int y = j-1; y<=j+1&& test == false; y++ )
                 {
                     if (x>=0 && x<hauteur && y<largeur && y>=0)
                     {
+                    
                         if (plateau[x,y].Trim().ToUpper()  == mot[0].ToString())
                         {
                             test = test_PlateauRécusif(mot.Substring(1), x, y);

@@ -111,7 +111,7 @@ dico.toString();
             while (T.TFT()==false)
             {
                 m = Console.ReadLine();
-                if (dico.RechDico(m) == true && p.Test_Plateau(m) == true)
+                if ( dico.RechDico(m) == true &&p.Test_Plateau(m) == true)
                 {
                     j1.AjouterMot(m);
                 }

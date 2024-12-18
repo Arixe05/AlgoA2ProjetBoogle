@@ -41,7 +41,7 @@ public void toString()
 {
     // on trie le fichier
     mots.Sort();
-    Console.WriteLine("Le dictionaire est est "+langue);
+    Console.WriteLine("Le dictionaire est en "+langue);
    Dictionary<char, int> compteurMots = new Dictionary<char, int>();
 
     // Initialisation du dictionnaire avec toutes les lettres de l'alphabet

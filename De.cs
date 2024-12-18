@@ -5,6 +5,8 @@ public class De{
     private List<string> listeL;
 
 
+
+
     public De() 
     {
         //partie à ajouter
