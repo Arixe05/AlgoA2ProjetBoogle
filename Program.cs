@@ -12,6 +12,10 @@ Console.WriteLine("Initialisation du jeux...\nVeuillez entrez la langue dans laq
 Dictionaire dico = new Dictionaire(Console.ReadLine());
 dico.toString();
 
+//création de la liste contenant tout les mot pour me nuage
+
+List<string> MotNuage = new List<string>();
+
 // intitialisation de la liste des lettres pour les dés 
         // création du tableau de lettre utilisé pour la création des dés, à metre dans le main lors de la création du main
     (string lettre, int score, int nombre)[] tabde = new (string, int, int)[26];
@@ -113,7 +117,12 @@ dico.toString();
                 m = Console.ReadLine();
                 if ( dico.RechDico(m) == true &&p.Test_Plateau(m) == true)
                 {
+                    int k = j1.score();
                     j1.AjouterMot(m);
+                    if (k< j1.score())
+                    {
+                        MotNuage.Add(m);
+                    }
                 }
                 else if (dico.RechDico(m)== false)
                 {
@@ -139,7 +148,12 @@ dico.toString();
                 m = Console.ReadLine();
                 if (dico.RechDico(m)== true && p.Test_Plateau(m)== true)
                 {
+                    int k = j1.score();
                     j2.AjouterMot(m);
+                    if (k< j2.score())
+                    {
+                        MotNuage.Add(m);
+                    }
                 }
                 else if (dico.RechDico(m)== false)
                 {
