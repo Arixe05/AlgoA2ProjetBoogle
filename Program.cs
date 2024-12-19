@@ -219,7 +219,32 @@ static void TestUnitaireDico()
 
 static void TestUnitaireJoueur()
 {
+        Console.WriteLine("Test Constructeur");
+        Joueur joueur1 = new Joueur("Aymeric");
+        Console.WriteLine(joueur1.Pseudo == "Aymeric" ? "Test constructeur : OK" : "Test constructeur : echec");
+        Console.WriteLine(joueur1.Score == 0 ? "Score initial : OK" : "Score initial : echec");
+        Console.WriteLine(joueur1.MotsTrouves.Count == 0 ? "Liste des mots trouvé vide : OK" : "Liste des mots trouvés vide : echec");
 
+        // Test AjouterMot
+        Console.WriteLine("\nTest AjouterMot");
+        Joueur joueur2 = new Joueur("Raphael");
+        bool ajoutMot1 = joueur2.AjouterMot("TROUBADOUR", 5);
+        bool ajoutMot2 = joueur2.AjouterMot("TROUBADOUR", 5);
+
+        Console.WriteLine(ajoutMot1 && joueur2.MotsTrouves.Contains("TROUBADOUR") && joueur2.Score == 5 ? "Ajout mot réussi : OK" : "Ajout mot réussi : echec");
+        Console.WriteLine(!ajoutMot2 && joueur2.MotsTrouves.Count == 1 ? "Mot déj présent, ajout refusé : OK" : "Mot déjà présent, ajout refuse : echec");
+
+        // Test ReinitialiserMots
+        Console.WriteLine("\nTest ReinitialiserMots");
+        Joueur joueur3 = new Joueur("Poplechiendepaul");
+        joueur3.AjouterMot("TROUBADOUR", 5);
+        joueur3.ReinitialiserMots();
+        Console.WriteLine(joueur3.MotsTrouves.Count == 0 && joueur3.Score == 0 ? "Réinitialisation des mots réussie : OK" : "Réinitialisation des mots échoué : echec");
+        // Test ajouter mot et afficher
+        Console.WriteLine("\nTest AjouterMot et afficher");
+        joueur3.AjouterMot("RAPHAEL", 10);
+        Console.WriteLine(joueur3.MotsTrouves.Contains("RAPHAEL") && joueur3.Score == 10 ? "Mot ajouté et score mis à jour : OK" : "Mot ajouté et score mis à jour : echec");
+    }
 }
 
 
