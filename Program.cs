@@ -2,8 +2,8 @@
 using System.IO;
 using System.Timers;
 using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography;
-
+using System.Diagnostics;
+using System.Collections.Generic;
 {
 
 
@@ -179,6 +179,48 @@ dico.toString();
 
 
  }
+
+ static void TestUnitairePlateau(List<string >ListeLettrePondéré)
+ {
+    Plateau P = new Plateau(4, 4, ListeLettrePondéré);
+    Console.WriteLine("plateau créer de taille 4*4 (la taille est normalement choisie pas les joueurs, avec fail safe pour une taille >1)");
+    Console.WriteLine("test affichage plateau");
+    Console.WriteLine(P.AfficherPlat()+"\n, retour sous la forme d'un"+P.AfficherPlat().ToString());
+    Console.WriteLine("teste mélange plateau (2* de suite)");
+   
+    P.NouvPlat();
+    Console.WriteLine(P.AfficherPlat());
+    Console.WriteLine();
+    P.NouvPlat();
+    Console.WriteLine(P.AfficherPlat());
+
+    Console.WriteLine("essayer de rentrer une suite de lettre dans le plateau (teste recherche récursive)");
+    Console.WriteLine("est ce que le mot est dans le plateau : "+P.Test_Plateau(Console.ReadLine()));
+
+
+
+ }
+static void TestUnitaireDE()
+
+{
+    Console.WriteLine("création d'un dé basic, avec le constructeur de() (création de la liste de lettre dans le constructeur)");
+    De D = new De();
+    Console.WriteLine("affichage du dé");
+    Console.WriteLine(D.toString());
+    Console.WriteLine($"on lance 6 fois le dé : ");
+    Console.WriteLine("affichage du dé");
+    Console.WriteLine("affichage du dé");
+}
+
+static void TestUnitaireDico()
+{
+
+}
+
+static void TestUnitaireJoueur()
+{
+
+}
 
 
 
