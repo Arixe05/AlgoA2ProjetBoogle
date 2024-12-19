@@ -257,6 +257,66 @@ static void TestUnitaireJoueur((string lettre, int score, int nombre)[] tabde )
         Console.WriteLine("\nTest AjouterMot et afficher");
         joueur3.AjouterMot("RAPHAEL");
         Console.WriteLine(joueur3.MotsTrouves.Contains("RAPHAEL") && joueur3.Score == 10 ? "Mot ajouté et score mis à jour : OK" : "Mot ajouté et score mis à jour : echec");
+        public class NuageDeMots : Form
+{
+    private List<string> mots; // Liste des mots à afficher dans le nuage
+    private Dictionary<string, int> frequenceMots; // Fréquence des mots pour définir leur taille
+    private Random random;
+
+    public NuageDeMots(List<string> mots)
+    {
+        this.mots = mots;
+        this.frequenceMots = new Dictionary<string, int>();
+        this.random = new Random();
+        
+        // Calcul de la fréquence des mots
+        foreach (var mot in mots)
+        {
+            if (frequenceMots.ContainsKey(mot))
+                frequenceMots[mot]++;
+            else
+                frequenceMots[mot] = 1;
+        }
+
+        // Configuration de la fenêtre
+        this.Text = "Nuage de Mots";
+        this.Size = new Size(800, 600);
+        this.Paint += new PaintEventHandler(NuageDeMots_Paint);
+    }
+
+    // Fonction qui dessine le nuage de mots sur l'interface
+    private void NuageDeMots_Paint(object sender, PaintEventArgs e)
+    {
+        Graphics g = e.Graphics;
+        g.Clear(Color.White); // Fond blanc pour l'affichage
+
+        // Parcours des mots et leur fréquence
+        foreach (var entry in frequenceMots)
+        {
+            string mot = entry.Key;
+            int frequence = entry.Value;
+
+            // Déterminer la taille de la police en fonction de la fréquence du mot
+            int fontSize = 10 + frequence * 2; // Exemple : augmenter la taille avec la fréquence
+
+            Font font = new Font("Arial", fontSize);
+            Brush brush = new SolidBrush(Color.FromArgb(random.Next(100, 256), random.Next(100, 256), random.Next(100, 256)));
+
+            // Position aléatoire pour chaque mot
+            int x = random.Next(50, this.Width - 100);
+            int y = random.Next(50, this.Height - 100);
+
+            // Affichage du mot
+            g.DrawString(mot, font, brush, new PointF(x, y));
+        }
+    }
+
+    // Méthode pour afficher le nuage de mots dans une fenêtre séparée
+    public static void AfficherNuageDeMots(List<string> mots)
+    {
+        Application.Run(new NuageDeMots(mots));
+    }
+}
  }
 
 
