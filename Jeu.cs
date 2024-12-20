@@ -15,9 +15,9 @@ public class Tim
         aTimer = new System.Timers.Timer(temps);
       
     }
-
+  // Hook up the Elapsed event for the timer. 
     public void lancetime(){
-      // Hook up the Elapsed event for the timer. 
+    
         aTimer.Elapsed += OnTimedEvent;
         aTimer.AutoReset = false;
         aTimer.Enabled = true;
