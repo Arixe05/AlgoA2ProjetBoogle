@@ -104,6 +104,48 @@ private void TriABulle()
         }
         Console.WriteLine("Les mots ont été triés avec l'algorithme de tri à bulles.");
     }
+    
+private string[] TriFusion(string[] tab, int debut, int fin)
+{
+     if (debut < fin)
+ {
+     int mil = debut +fin / 2;
+     string[] tabdroite = new string[fin - mil];
+     string[] tabgauche = new string[mil - debut];
+     for (int i = debut; i < mil; i++) { tabgauche[i] = tab[i]; }
+     for (int j = mil; j < fin; j++) { tabdroite[j] = tab[j]; }
+     TriFusion(tabgauche, debut, mil);
+     TriFusion(tabdroite, mil + 1, fin - 1);
+     tab = fusion(tabgauche, tabdroite);
+     return tab;
+ }
+ else {
+    string[] jsp = new string[0];
+    return jsp;
+ }
+}
+ public string[] fusion(string[] tab1, string[] tab2)
+ {
+     string[] tab = new string[tab1.Length + tab2.Length];
+
+     int i = tab1.Length;
+     int j = tab2.Length;
+     for (int k= 0; k < tab.Length;k++)
+     {
+         if (tab1[i].CompareTo(tab2[j])<-1)
+         {
+             tab[k] = tab1[i];
+             if (i < tab1.Length - 1) { i++; }
+         }
+         else
+         {
+             tab[k] = tab2[j];
+             if (j < tab2.Length - 1) { j++; }
+         }
+     }
+     return tab;
+
+ }
 
 
  public bool RechDico(string mot)
