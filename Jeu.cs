@@ -11,11 +11,11 @@ public class Tim
 
    public Tim(int temps)
    {
-        // Create a timer with a two second interval.
+   
         aTimer = new System.Timers.Timer(temps);
       
     }
-  // Hook up the Elapsed event for the timer. 
+
     public void lancetime(){
     
         aTimer.Elapsed += OnTimedEvent;
