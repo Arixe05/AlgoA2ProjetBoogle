@@ -8,17 +8,16 @@ using System.Drawing.Common;
 {
 
 
-// initialisation du dico
+
 Console.WriteLine("Initialisation du jeux...\nVeuillez entrez la langue dans laquelle vous voulez jouer (FR ou EN).");
 Dictionaire dico = new Dictionaire(Console.ReadLine());
 dico.toString();
 
-//création de la liste contenant tout les mot pour me nuage
+
 
 List<string> MotNuage = new List<string>();
 
-// intitialisation de la liste des lettres pour les dés 
-        // création du tableau de lettre utilisé pour la création des dés, à metre dans le main lors de la création du main
+
     (string lettre, int score, int nombre)[] tabde = new (string, int, int)[26];
     string contenu = File.ReadAllText("Lettres.txt");
     for (int i = 0; i<26; i++)
@@ -31,12 +30,12 @@ List<string> MotNuage = new List<string>();
         contenu = contenu.Substring(contenu.IndexOf(";")+1);
         
     }
-    // test pour voir si notre tableau avec les différente valeur est correcte
+
     for(int i = 0; i< tabde.Length; i++)
     {
         Console.WriteLine($"{tabde[i].lettre}, {tabde[i].score}, {tabde[i].nombre}");
     }
-    //création d'une liste avec des lettres pondéré
+   
     List<string> ListeLettrePondéré = new List<string>();
      for (int i = 0; i<26; i++)
      {
@@ -46,7 +45,7 @@ List<string> MotNuage = new List<string>();
         }
      } 
 
-     // création du tableau de jeux
+    
      int hauteur = -1;
      int largeur =-1;      
      while (hauteur<=1)
@@ -72,14 +71,14 @@ List<string> MotNuage = new List<string>();
     Plateau p = new Plateau(hauteur, largeur, ListeLettrePondéré);
    
 
-    // créatrion des Joueurs
+  
 
     Console.WriteLine("veuillez entre le pseudo du 1er joueur");
     Joueur j1 = new Joueur(Console.ReadLine(), tabde);
     Console.WriteLine("veuillez entre le pseudo du 2nd joueur");
     Joueur j2 = new Joueur(Console.ReadLine(), tabde);
 
-    // Nombre de lanche du jeux
+
 
     int tour = -1;
     Console.WriteLine("Veuillez entrer le nombre de tour (>=1)");
@@ -94,14 +93,13 @@ List<string> MotNuage = new List<string>();
             Console.WriteLine("veuillez entrer une nouvelle valeur >=1");
         }
     }
-    // début de la partie
+   
     tour = tour*2;
-    // création du timer
+  
     Tim T = new Tim(20*1000); // le 60 correspond à la durré du tour d'un joueur
     
 
-    string m = ""; //mot trouvé
-    // boucle du jeux, 
+    string m = ""; 
     T.lancetime();
     while (tour !=0)
     {   
@@ -173,7 +171,7 @@ List<string> MotNuage = new List<string>();
         tour--;
     } 
 
-     // annonce de la fin et des score
+    
 
     Console.WriteLine("\n\nVoici les scores de la partie\n");
     j1.AfficherInfos();
@@ -253,7 +251,7 @@ static void TestUnitaireJoueur((string lettre, int score, int nombre)[] tabde )
         Console.WriteLine(joueur1.Score == 0 ? "Score initial : OK" : "Score initial : echec");
         Console.WriteLine(joueur1.MotsTrouves.Count == 0 ? "Liste des mots trouvé vide : OK" : "Liste des mots trouvés vide : echec");
 
-        // Test AjouterMot
+      
         Console.WriteLine("\nTest AjouterMot");
         Joueur joueur2 = new Joueur("Raphael",tabde);
         joueur2.AjouterMot("TROUBADOUR");
@@ -265,7 +263,7 @@ static void TestUnitaireJoueur((string lettre, int score, int nombre)[] tabde )
         joueur3.AjouterMot("TROUBADOUR");
         joueur3.ReinitialiserMots();
         Console.WriteLine(joueur3.MotsTrouves.Count == 0 && joueur3.Score == 0 ? "Réinitialisation des mots réussie : OK" : "Réinitialisation des mots échoué : echec");
-        // Test ajouter mot et afficher
+        
         Console.WriteLine("\nTest AjouterMot et afficher");
         joueur3.AjouterMot("RAPHAEL");
         Console.WriteLine(joueur3.MotsTrouves.Contains("RAPHAEL") && joueur3.Score == 10 ? "Mot ajouté et score mis à jour : OK" : "Mot ajouté et score mis à jour : echec");
