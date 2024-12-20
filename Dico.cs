@@ -19,15 +19,15 @@ public class Dictionaire {
     ChargerMots(cheminFichier);
 }
 
-// création du dico
+
 private void ChargerMots(string cheminFichier)
 {
     try
     {
-        // Lire tout le contenu du fichier comme une seule chaîne
+        
         string contenu = File.ReadAllText(cheminFichier);
 
-        // Diviser le contenu en mots en utilisant l'espace comme séparateur
+        
         mots = new List<string>(contenu.Split(' ', StringSplitOptions.RemoveEmptyEntries));
         Console.WriteLine("Chargement des mots");
     }
@@ -39,43 +39,43 @@ private void ChargerMots(string cheminFichier)
 
 public void toString()
 {
-    // on trie le fichier
+    
     mots.Sort();
     Console.WriteLine("Le dictionaire est en "+langue);
    Dictionary<char, int> compteurMots = new Dictionary<char, int>();
 
-    // Initialisation du dictionnaire avec toutes les lettres de l'alphabet
+    
     for (char lettre = 'a'; lettre <= 'z'; lettre++)
     {
         compteurMots[lettre] = 0;
     }
 
-    // Parcourir les mots et compter les occurrences
+    
     foreach (string mot in mots)
     {
         char premiereLettre = char.ToLower(mot[0]);
         compteurMots[premiereLettre]++;
     }
 
-    // Afficher les résultats
+    
     foreach (var paire in compteurMots)
     {
         Console.WriteLine($"Le nombre de mots commençant par '{paire.Key}' est : {paire.Value}");
     }
 
-    // on compte le nombre de mot en fonction de leur taille
+    
     int[] comptage = new int[17]; 
-    // on set tt les position de notre tableau à 0
+    
     for (int i = 0; i< comptage.Length; i++)
     {
         comptage[i]=0;
     }
-    // on parcout la liste de mot et on les comptes
+    
     for(int i = 0; i<mots.Count; i++)
     {
         comptage[mots[i].Length]++;
     }
-    //on affiche le résultat
+   
     for(int i = 1; i<comptage.Length; i++)
     {
         Console.WriteLine("le nombre de mots de taille "+ i+" est : "+ comptage[i]);
@@ -105,7 +105,7 @@ private void TriABulle()
         Console.WriteLine("Les mots ont été triés avec l'algorithme de tri à bulles.");
     }
 
-// recherche dico récursive
+
  public bool RechDico(string mot)
 {
     bool resultat = false;
