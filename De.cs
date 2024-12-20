@@ -9,8 +9,7 @@ public class De{
 
     public De() 
     {
-        //partie à ajouter
-        // création du tableau de lettre utilisé pour la création des dés, à metre dans le main lors de la création du main
+       
     (string lettre, int score, int nombre)[] tabde = new (string, int, int)[26];
     string contenu = File.ReadAllText("Lettres.txt");
     for (int i = 0; i<26; i++)
@@ -23,9 +22,7 @@ public class De{
         contenu = contenu.Substring(contenu.IndexOf(";")+1);
         
     }
-    // test pour voir si notre tableau avec les différente valeur est correcte
-    
-    //création d'une liste avec des lettres pondéré
+
     List<string> ListeLettrePondéré = new List<string>();
      for (int i = 0; i<26; i++)
      {
@@ -34,10 +31,10 @@ public class De{
             ListeLettrePondéré.Add(tabde[i].lettre);
         }
      } 
-     //fin de partie à ajouter au main
+   
         listeL = ListeLettrePondéré;
         
-    // création du dé 6
+
     string[] de = new string[6];
     Random rand = new Random();
     for (int i = 0; i<6; i++ )
