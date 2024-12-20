@@ -190,19 +190,6 @@ List<string> MotNuage = new List<string>();
          Console.WriteLine("Il y a égalité");
     }
     else{ Console.WriteLine("C'est le joueur 2 qui a gagné");}
-
-
-         Dictionary<string, int> motsAvecPoints = new Dictionary<string, int>();
-
-        // Calcul des points pour chaque mot dans MotNuage
-        foreach (string mot in MotNuage)
-        {
-            int score = CalculerScoreMot(mot, lettreValeurs);
-            motsAvecPoints[mot] = score;
-        }
-
-        // Afficher le nuage de mots
-        NuageDeMots.AfficherNuageDeMots(motsAvecPoints);
  }
 
  static void TestUnitairePlateau(List<string >ListeLettrePondéré)
@@ -283,68 +270,7 @@ static void TestUnitaireJoueur((string lettre, int score, int nombre)[] tabde )
         joueur3.AjouterMot("RAPHAEL");
         Console.WriteLine(joueur3.MotsTrouves.Contains("RAPHAEL") && joueur3.Score == 10 ? "Mot ajouté et score mis à jour : OK" : "Mot ajouté et score mis à jour : echec");
 
-        public class NuageDeMots : Form
-{
-    private Dictionary<string, int> motsAvecPoints;
-    private Random random;
-
-    // Constructeur qui prend un dictionnaire de mots et leurs points
-    public NuageDeMots(Dictionary<string, int> motsAvecPoints)
-    {
-        this.motsAvecPoints = motsAvecPoints;
-        this.random = new Random();
-
-        // Configuration de la fenêtre
-        this.Text = "Nuage de Mots";
-        this.Size = new Size(800, 600);
-        this.Paint += new PaintEventHandler(NuageDeMots_Paint);
-    }
-
-    // Fonction qui dessine le nuage de mots sur l'interface
-    private void NuageDeMots_Paint(object sender, PaintEventArgs e)
-    {
-        Graphics g = e.Graphics;
-        g.Clear(Color.White); // Fond blanc pour l'affichage
-
-        // Parcours des mots et leurs points
-        foreach (var entry in motsAvecPoints)
-        {
-            string mot = entry.Key;
-            int points = entry.Value;
-
-            // Déterminer la taille de la police en fonction du nombre de points du mot
-            int fontSize = 10 + points * 3; // Exemple : augmenter la taille avec les points
-
-            Font font = new Font("Arial", fontSize);
-            Brush brush = new SolidBrush(Color.FromArgb(random.Next(100, 256), random.Next(100, 256), random.Next(100, 256)));
-
-            // Position aléatoire pour chaque mot
-            int x = random.Next(50, this.Width - 100);
-            int y = random.Next(50, this.Height - 100);
-
-            // Affichage du mot
-            g.DrawString(mot, font, brush, new PointF(x, y));
-        }
-    }
-
-    // Méthode pour afficher le nuage de mots dans une fenêtre séparée
-    public static void AfficherNuageDeMots(Dictionary<string, int> motsAvecPoints)
-    {
-        Application.Run(new NuageDeMots(motsAvecPoints));
-    }
-}
-
-public class Program
-{
-    // Dictionnaire des valeurs des lettres
-    static Dictionary<char, int> lettreValeurs = new Dictionary<char, int>
-    {
-        {'A', 1}, {'B', 3}, {'C', 3}, {'D', 2}, {'E', 1}, {'F', 4},
-        {'G', 2}, {'H', 4}, {'I', 1}, {'J', 8}, {'K', 10}, {'L', 1},
-        {'M', 2}, {'N', 1}, {'O', 1}, {'P', 3}, {'Q', 8}, {'R', 1},
-        {'S', 1}, {'T', 1}, {'U', 1}, {'V', 4}, {'W', 10}, {'X', 10},
-        {'Y', 10}, {'Z', 10}
-    };
+        
 }
  }
 
