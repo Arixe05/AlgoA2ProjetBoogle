@@ -13,7 +13,7 @@ public class Plateau
     public Plateau(int hauteur, int largeur,List<string> ListeLettrePondéré)
     {
         
-        //potentiellement à mettre dans dans le main
+     
         while (hauteur<=1 || largeur<=1)
         {
              Console.WriteLine("on ne peut pas jouer avec un tableau de taille inférieur ou égale à 1!\nVeuillez entrez de nouvelles valeurs");
