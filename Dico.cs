@@ -81,6 +81,29 @@ public void toString()
         Console.WriteLine("le nombre de mots de taille "+ i+" est : "+ comptage[i]);
     } 
 }
+private void TriABulle()
+    {
+        int n = mots.Count;
+        bool echange = true;
+        
+        while (echange)
+        {
+            echange = false;
+            for (int i = 1; i < n; i++)
+            {
+                if (string.Compare(mots[i - 1], mots[i]) > 0)  
+                {
+
+                    string temp = mots[i - 1];
+                    mots[i - 1] = mots[i];
+                    mots[i] = temp;
+                    echange = true;  
+                }
+            }
+            n--;  
+        }
+        Console.WriteLine("Les mots ont été triés avec l'algorithme de tri à bulles.");
+    }
 
 // recherche dico récursive
  public bool RechDico(string mot)
