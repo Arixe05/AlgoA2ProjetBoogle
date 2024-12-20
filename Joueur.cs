@@ -1,15 +1,15 @@
 
     public class Joueur
 {
-    // Propriétés
-    public string Pseudo { get; set; } //pseudo 
-    public int Score { get; private set; } // Le score d
-    public List<string> MotsTrouves { get; private set; } //iste des mots trouvé par le joueur
+
+    public string Pseudo { get; set; } 
+    public int Score { get; private set; } 
+    public List<string> MotsTrouves { get; private set; } 
 
     public int NBmot;
     private (string lettre, int score, int nombre)[] LettreScore;
 
-    // Constructeur
+  
     public Joueur(string pseudo, (string lettre, int score, int nombre)[] infoLettre)
     {
         Pseudo = pseudo;
